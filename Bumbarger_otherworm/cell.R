@@ -11,12 +11,14 @@ dat <- dat[,1:3]
 g <- graph.data.frame(dat, directed=TRUE)
 g$source <- "http://www.sciencedirect.com/science/article/pii/S0092867412015000"
 g$info  <- "source=presynaptic, target=postsynaptic"
+g$sensor <- "Electron Microscopy"
 write.graph(g, "p.pacificus_synaptic.connectivity.specimen148.graphml", format="graphml") 
 
 dat <- read.table("./mmc2/p.pacificus_synaptic.connectivity.specimen107.csv", header=TRUE, sep=",")
 dat <- dat[,1:3]
 g <- graph.data.frame(dat, directed=TRUE)
 g$source <- "http://www.sciencedirect.com/science/article/pii/S0092867412015000"
+g$sensor <- "Electron Microscopy"
 g$info <- "source=presynaptic, target=postsynaptic"
 write.graph(g, "p.pacificus_synaptic.connectivity.specimen107.graphml", format="graphml")
 
@@ -25,6 +27,7 @@ dat <- read.table("./mmc3/p.pacificus_concensus_network.csv", header=TRUE, sep="
 dat <- dat[,1:5]
 g <- graph.data.frame(dat, directed=TRUE)
 g$source "http://www.sciencedirect.com/science/article/pii/S0092867412015000"
+g$sensor <- "Electron Microscopy"
 g$info <- "source=presynaptic, target=postsynaptic"
 write.graph(g, "p.pacificus_concensus_network.graphml", format="graphml")
 
@@ -33,5 +36,6 @@ dat <- read.table("./mmc4/c.elegans_synapse.classes.weighted.multiplicity.of.syn
 dat <- dat[,1:3]
 g <- graph.data.frame(dat, directed=TRUE)
 g$source <- "http://www.sciencedirect.com/science/article/pii/S0092867412015000"
+g$sensor <- "Electron Microscopy"
 g$info <- "source=presynaptic, target=postsynaptic"
 write.graph(g, "c.elegans_synapse.classes.weighted.multiplicity.of.synapses.graphml", format="graphml")
