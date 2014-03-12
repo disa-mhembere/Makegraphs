@@ -22,7 +22,7 @@ E(gmcc)$chemical_weight <- E(gmcc)$weight
 gmcc <- remove.edge.attribute(gmcc, "weight")
 
 g <- graph.union(gmcc, gmec) # Need to merge vertices but not edges
-g$source <- "Source is: 1. Jarrell, T. a; Wang, Y.; Bloniarz, A. E.; Brittin, C. a; Xu, M.; Thomson, J. N.; Albertson, D. G.; Hall, D. H.; Emmons, S. W. The Connectome of a Decision-Making Neural Network. Science 2012, 337, 437–44."
+g$source <- "http://www.sciencemag.org/content/337/6093/437.full"
 g$DOI <- "10.1126/science.1221762"
 g$region <- "neural"
 g$sensor <- "Electron Microscopy"
