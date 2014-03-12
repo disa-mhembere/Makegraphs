@@ -7,7 +7,7 @@
 
 require(igraph)
 
-load("../RData/mouseretina.RData")
+load("../data/mouseretina.RData")
 mouse_contacts <- mouse_contacts[,2:7]
 m.cells.types <- merge(mouse_cells, mouse_types, by=intersect("type_id", "type_id")) 
 
@@ -19,6 +19,6 @@ g$sensor <- "Electron Microscopy"
 g$source <- "Automatic discovery of cell types and microcircuitry from neural connectomics. Eric Jonas and Konrad Kording, submitted"
 g$region <- "retina"
 
-write.graph(g, "graphs/mouse_retina_1.graphml", format="graphml")
+write.graph(g, "../graphs/mouse_retina_1.graphml", format="graphml")
 
 

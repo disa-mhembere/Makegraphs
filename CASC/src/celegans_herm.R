@@ -1,7 +1,7 @@
 # C.elegans
 # celegans.herm_nematode.pharynx_1.graphml
 require(igraph)
-load("../RData/celegans_herm.RData")
+load("../data/celegans_herm.RData")
 celegans_synapses <- celegans_synapses[,2:5]
 names(celegans_synapses)[4] <- "weight"
 g <- graph.data.frame(celegans_synapses, directed=TRUE) # <from, to, [attr[attr ..]]>
@@ -14,5 +14,5 @@ V(g)[celegans_cells["cell_id"]$cell_id]$soma_pos <- celegans_cells["soma_pos"]$s
 V(g)[celegans_cells["cell_id"]$cell_id]$neurotransmitters <- celegans_cells["neurotransmitters"]$neurotransmitters
 V(g)[celegans_cells["cell_id"]$cell_id]$role <- celegans_cells["role"]$role
 g$info <- "weight = count of synapses"
-write.graph(g, "graphs/celegans.herm_nematode.pharynx_1.graphml", format="graphml")
+write.graph(g, "../graphs/celegans.herm_nematode.pharynx_1.graphml", format="graphml")
 
