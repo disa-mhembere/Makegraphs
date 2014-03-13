@@ -10,7 +10,7 @@ mdat <- as.matrix(dat)
 g <- graph.adjacency(mdat[, 2:dim(mdat)[2]], weighted=TRUE)
 g$source <- "http://brancusi1.usc.edu/connectome/2011/"
 g$region <- "brain"
-g$sensor <- "neuroanatomical experiments"
+g$sensor <- "Neuroanatomical experiments"
 write.graph(g, "../graphs/rattus.norvegicus_brain_1.graphml", format="graphml")
 
 # 2012
@@ -19,7 +19,7 @@ mdat <- as.matrix(dat)
 g <- graph.adjacency(mdat[, 2:dim(mdat)[2]], weighted=TRUE)
 g$source <- "http://brancusi1.usc.edu/connectome/2012/3/"
 g$region <- "brain"
-g$sensor <- "neuroanatomical experiments"
+g$sensor <- "Neuroanatomical experiments"
 write.graph(g, "../graphs/rattus.norvegicus_brain_2.graphml", format="graphml")
 
 # 2013
@@ -28,5 +28,5 @@ mdat <- as.matrix(dat)
 g <- graph.adjacency(mdat[, 2:dim(mdat)[2]], weighted=TRUE)
 g$source <- "http://brancusi1.usc.edu/connectome/2013/1/"
 g$region <- "brain"
-g$sensor <- "neuroanatomical experiments"
+g$sensor <- "Neuroanatomical experiments"
 write.graph(g, "../graphs/rattus.norvegicus_brain_3.graphml", format="graphml")

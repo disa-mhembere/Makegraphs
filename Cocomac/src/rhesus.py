@@ -24,7 +24,7 @@ def main():
   g["source"] = "http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0046497#s5"
   g["sensor"] = "Tract tracing studies"
   g["DOI"] = "10.1371/journal.pone.0046497"
-  g["region"] = "Cerebral Cortex"
+  g["region"] = "cerebral cortex"
 
   g.write_graphml("../graphs/rhesus_brain_1.graphml")
   
