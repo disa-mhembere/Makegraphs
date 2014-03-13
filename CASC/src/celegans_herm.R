@@ -14,5 +14,6 @@ V(g)[celegans_cells["cell_id"]$cell_id]$soma_pos <- celegans_cells["soma_pos"]$s
 V(g)[celegans_cells["cell_id"]$cell_id]$neurotransmitters <- celegans_cells["neurotransmitters"]$neurotransmitters
 V(g)[celegans_cells["cell_id"]$cell_id]$role <- celegans_cells["role"]$role
 g$info <- "weight = count of synapses"
-write.graph(g, "../graphs/celegans.herm_nematode.pharynx_1.graphml", format="graphml")
+g$region <- "pharynx"
+write.graph(g, "../graphs/celegans.herm_pharynx_1.graphml", format="graphml")
 
