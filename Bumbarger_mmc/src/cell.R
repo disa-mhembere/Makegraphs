@@ -25,7 +25,8 @@ g$region <- "neural synaptic"
 g$DOI <- "10.1016/j.cell.2012.12.013"
 write.graph(g, "../graphs/p.pacificus_neural.synaptic_2.graphml", format="graphml")
 
-# mmc3
+# mmc3 Commented out
+if (FALSE) {
 dat <- read.table("../data/mmc3/p.pacificus_concensus_network.csv", header=TRUE, sep=",")
 dat <- dat[,1:5]
 g <- graph.data.frame(dat, directed=TRUE)
@@ -46,3 +47,4 @@ g$info <- "source=presynaptic, target=postsynaptic"
 g$DOI <- "10.1016/j.cell.2012.12.013"
 g$region <- "neural synaptic"
 write.graph(g, "../graphs/c.elegans_neural_multiplicity.synapses_1.graphml", format="graphml")
+}

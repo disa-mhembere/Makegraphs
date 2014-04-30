@@ -16,7 +16,7 @@ mcts <- mcts[c("cell_id", "designation", "volgyi_type", "macneil_type", "coarse"
 
 g <- graph.data.frame(mouse_contacts, directed=TRUE, vertices=mcts) 
 g$sensor <- "Electron Microscopy"
-g$source <- "Automatic discovery of cell types and microcircuitry from neural connectomics. Eric Jonas and Konrad Kording, submitted"
+g$source <- "https://github.com/ericmjonas/circuitdata/tree/master/mouseretina" #"Automatic discovery of cell types and microcircuitry from neural connectomics. Eric Jonas and Konrad Kording, submitted"
 g$region <- "retina"
 
 write.graph(g, "../graphs/mouse_retina_1.graphml", format="graphml")
