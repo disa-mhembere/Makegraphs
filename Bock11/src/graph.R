@@ -3,7 +3,7 @@
 # Email: disa@jhu.edu
 # Copyright (c) 2014. All rights reserved.
 
-# Bock figure 5 d
+# Figure 5d)
 require(igraph)
 g <- graph.empty(n=29, directed=TRUE)
 
@@ -11,15 +11,19 @@ es <- c(2,15 ,3,20, 3,29, 3,22, 3,21 , 3,19 , 3,18 , 4,17, 4,18, 4,19 , 6,29, 6,
 w <-  c(1,    2,    1,    1,    1,      2,    2,      1,    2,    1,      6,    2,    1,    1,    1,    1,  1,    1,    1,    2,    3,    1,      1,    1,      1,    1,    1,      2,    1,      13,     3,      1,      1,    1,    3,      1,      1,    2,    1,      1,    2,      2,    1,    1)
 
 g <- add.edges(g, es, weight=w)
-V(g)$type <- c("IT", "CBEV","","","","","","","","","","","","","","","","","","","","","","","","","","","","",)
+V(g)[c(3:13)]$type1 <- "Characterized pyramidal neuron" # Triangle
+V(g)[c(1,2,17,21:23,26,29)]$type1 <-"Cell body in EM volume" # Circle
+V(g)[c(14:16,18:20,24:25,27,28)]$type1 <- "Dendritic fragment" # square
 
-g$info <- "Figure 5d"
+V(g)[c(24,25)]$type2 <- "Postsynaptic excitatory target"# magenta
+V(g)[c(1, 14:23,26:29)]$type2 <- "Postsynaptic inhibitory target"# cyan 
+
+g$info <- "Figure 5b"
 g$source <-"http://www.nature.com/nature/journal/v471/n7337/full/nature09802.html"
 g$sensor <- "Electron microscopy" 
 g$DOI <- "doi:10.1038/nature09802"
 g$region <- "cerebral cortex"
-g$key <- "IT=inhibitory targets, CBEV=cell body in EM volume,"
-write.graph(g, "mouse_visual.cortex_1.graphml", format="graphml")
+write.graph(g, "../graphs/mouse_visual.cortex_1.graphml", format="graphml")
 
 # Figure 5b)
 # Interleave function
@@ -82,6 +86,16 @@ el <- c(20:36, 5, 19, 2, 83)
 wt <- c(rep(1,length(20:36)+1),2, 2, 1) 
 g <- g + edges(itlv(rep(13,length(el)), el), weight=wt)
 
+# Add attributes
+tri <- c(1,3:14)
+V(g)[tri]$type1 <- "Characterized pyramidal neuron" # Triangle
+cir <- c(15,25:28,36,51:54,67:73,83,93:96,103,105,115:120,140,141,150,163:168,182,183,185,186,191)
+V(g)[cir]$type1 <- "Cell body in EM volume" # Circle
+square <- setdiff(1:195, c(tri,cir))
+V(g)[square]$type1 <- "Dendritic fragment" # square
+
+V(g)[c(15:18,20:28, 38:47, 51:60, 73:82,93:102, 106:109,116:129,133,134,141:149,151,152,154:158,163:176,179,180,183,184,191:194)]$type2 <- "Postsynaptic excitatory target" # magenta
+V(g)[c(19, 29:37,48:50,61:72, 83:92,103:105, 110:115,130:132,135:140,150,153,159:162,177,178,181,182,185:190,195 )]$type2 <- "Postsynaptic inhibitory target" # cyan 
 
 g$info <- "Figure 5b"
 g$source <-"http://www.nature.com/nature/journal/v471/n7337/full/nature09802.html"
@@ -89,5 +103,5 @@ g$sensor <- "Electron microscopy"
 g$DOI <- "doi:10.1038/nature09802"
 g$region <- "cerebral cortex"
 g$key <- "IT=inhibitory targets, CBEV=cell body in EM volume,"
-write.graph(g, "mouse_visual.cortex_2.graphml", format="graphml")
+write.graph(g, "../graphs/mouse_visual.cortex_2.graphml", format="graphml")
 
